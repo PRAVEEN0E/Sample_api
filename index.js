@@ -1,7 +1,15 @@
-const express=require('express')
-const app= express()
-const router=require('./Router/router')
+const express = require('express')
+const app = express()
+const router = require('./Router/router')
+
+
+app.use(express.json())
+
+
 app.use(router)
-app.listen(3000,()=>{
-    console.log("The server is Running: http://localhost:3000/")
+
+
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+    console.log(`✅ Server is Running: http://localhost:${PORT}/`)
 })
